@@ -1,0 +1,19 @@
+a = open('/Users/zopper/Downloads/ec-1_orderdetails.csv','rb')
+reader = csv.reader(a)
+new_rows_list = []
+
+for row in reader:
+    print row[0]
+    if row[0] != 'Order ID':
+        try:
+            sn = Store.objects.get(store_id=row[3]).name
+            new_roww = [row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], sn]
+            new_rows_list.append(new_roww)
+        except:
+            pass
+a.close()
+
+aa = open('/Users/zopper/Downloads/ec-1_orderdetails.csv','w')
+reader = csv.writer(aa)
+writer.writerows(new_rows_list)
+aa.close()
