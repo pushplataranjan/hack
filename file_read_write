@@ -1,4 +1,4 @@
-a = open('/Users/zopper/Downloads/ec-1_orderdetails.csv','rb')
+a = open('/tmp/ec-1_orderdetails.csv','rb')
 reader = csv.reader(a)
 new_rows_list = []
 
@@ -13,7 +13,7 @@ for row in reader:
             pass
 a.close()
 
-aa = open('/Users/zopper/Downloads/ec-1_orderdetails.csv','w')
+aa = open('/tmp/ec-1_orderdetails.csv','w')
 reader = csv.writer(aa)
 writer.writerows(new_rows_list)
 aa.close()
